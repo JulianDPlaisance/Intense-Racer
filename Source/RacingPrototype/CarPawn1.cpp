@@ -105,6 +105,11 @@ void ACarPawn1::Tick(float Delta)
 	//UpdateHUDStrings();
 }
 
+void ACarPawn1::SwitchCamera()
+{
+
+}
+
 void ACarPawn1::BeginPlay()
 {
 	Super::BeginPlay();

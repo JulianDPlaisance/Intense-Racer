@@ -72,6 +72,8 @@ public:
 
 	void OnHandbrakeReleased();
 
+	void SwitchCamera();
+
 	static const FName LookUpBinding;
 	static const FName LookRightBinding;
 
