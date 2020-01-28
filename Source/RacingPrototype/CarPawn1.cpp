@@ -9,14 +9,14 @@ const FName ACarPawn1::LookRightBinding("LookRight");
 ACarPawn1::ACarPawn1()
 {
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> CarMesh(TEXT("/Game/Vehicle/Sedan/Sedan_SkelMesh.Sedan_SkelMesh"));
-	getMesh()->SetSkeletalMesh(CarMesh.Object);
+	GetMesh()->SetSkeletalMesh(CarMesh.Object);
 
 	static ConstructorHelpers::FClassFinder<UObject> AnimBPClass(TEXT("/game/vehicle/sedan/sedan_animBP"));
 	GetMesh()->SetAnimInstanceClass(AnimBPClass.Class);
 
-	UWheeledVehicleMovementComponent4w* Vehicle4w = CastChecked<UWheeledVehicleMovementComponent4w>(GetVehicleMovement());
+	UWheeledVehicleMovementComponent4W* Vehicle4W = CastChecked<UWheeledVehicleMovementComponent4W>(GetVehicleMovement());
 
-	check(Vehicle4w->WheelSetups.Num() == 4);
+	check(Vehicle4W->WheelSetups.Num() == 4);
 
 	Vehicle4W->WheelSetups[0].WheelClass = URacingPrototypeWheelFront::StaticClass();
 	Vehicle4W->WheelSetups[0].BoneName = FName("Wheel_Front_Left");
@@ -69,12 +69,16 @@ void ACarPawn1::SetupPlayerInputComponent(class UInputComponent* PlayerInputComp
 	PlayerInputComponent->BindAxis("LookUp");
 	PlayerInputComponent->BindAxis("LookRight");
 	PlayerInputComponent->BindAction("Handbrake", IE_Pressed, this, &ACarPawn1::OnHandbrakePressed);
-	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &ACarPawn1::OnHandbreakReleased);	
+	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &ACarPawn1::OnHandbrakeReleased);	
 }
 
 void ACarPawn1::MoveForward(float Val)
 {
 	GetVehicleMovementComponent()->SetThrottleInput(Val);
+}
+
+void ACarPawn1::UpgradePhysicsMaterial()
+{
 }
 
 void ACarPawn1::MoveRight(float Val)
@@ -87,7 +91,7 @@ void ACarPawn1::OnHandbrakePressed()
 	GetVehicleMovementComponent()->SetHandbrakeInput(true);
 }
 
-void ACarPawn1::OnHandbrakePressed()
+void ACarPawn1::OnHandbrakeReleased()
 {
 	GetVehicleMovementComponent()->SetHandbrakeInput(false);
 }
@@ -98,7 +102,7 @@ void ACarPawn1::Tick(float Delta)
 
 	bInReverseGear = GetVehicleMovement()->GetCurrentGear() < 0;
 
-	UpdateHUDStrings();
+	//UpdateHUDStrings();
 }
 
 void ACarPawn1::BeginPlay()

@@ -31,7 +31,7 @@ class UInputComponent;
 UCLASS(config=Game)
 class RACINGPROTOTYPE_API ACarPawn1 : public AWheeledVehicle
 {
-	GENERATED_BODY();
+	GENERATED_BODY()
 
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 		USpringArmComponent* SpringArm;
@@ -51,6 +51,8 @@ public:
 		FColor GearDisplayReverseColor;
 	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly)
 		bool bInReverseGear;
+	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly)
+		bool bLookBack;
 
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 
@@ -68,13 +70,13 @@ public:
 
 	void OnHandbrakePressed();
 
-	void OnHandbreakReleased();
+	void OnHandbrakeReleased();
 
 	static const FName LookUpBinding;
 	static const FName LookRightBinding;
 
 private:
-	void UpdateHUDStrings();
+	//void UpdateHUDStrings();
 
 	bool bIsLowFriction;
 
