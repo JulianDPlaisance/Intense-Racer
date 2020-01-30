@@ -53,6 +53,7 @@ Plugins/*/Binaries/*
 Plugins/FMODStudio/Binaries/Win64/*
 !Plugins/FMODStudio/Binaries/Win64/*.lib
 !Plugins/FMODStudio/Binaries/Win64/*.dll
+!Plugins/FMODStudio/Binaries/Win64/*.modules
 
 # Builds
 Build/*
