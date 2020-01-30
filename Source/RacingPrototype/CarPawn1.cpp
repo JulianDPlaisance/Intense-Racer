@@ -49,6 +49,24 @@ ACarPawn1::ACarPawn1()
 	Camera->bUsePawnControlRotation = false;
 	Camera->FieldOfView = 90.f;
 
+	ReverseSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm1"));
+	ReverseSpringArm->TargetOffset = FVector(0.f, 0.f, 200.f);
+	ReverseSpringArm->SetRelativeRotation(FRotator(15.f, 0.f, 0.f));
+	ReverseSpringArm->SetupAttachment(RootComponent);
+	ReverseSpringArm->TargetArmLength = -900.0f;
+	ReverseSpringArm->bEnableCameraRotationLag = true;
+	ReverseSpringArm->CameraRotationLagSpeed = 7.f;
+	ReverseSpringArm->bInheritPitch = false;
+	ReverseSpringArm->bInheritRoll = false;
+
+	ReverseCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera1"));
+	ReverseCamera->SetupAttachment(ReverseSpringArm, USpringArmComponent::SocketName);
+	ReverseCamera->SetRelativeRotation(FRotator(0.f, 180.f, 0.f));
+	ReverseCamera->bUsePawnControlRotation = true;
+	ReverseCamera->FieldOfView = 90.f;
+
+
+
 	static ConstructorHelpers::FObjectFinder<UMaterial> TextMaterial(TEXT("Material'/Engine/EngineMaterials/AntiAliasedTextMaterialTranslucent.AntiAliasedTextMaterialTranslucent'"));
 	UMaterialInterface* Material = TextMaterial.Object;
 
@@ -70,6 +88,7 @@ void ACarPawn1::SetupPlayerInputComponent(class UInputComponent* PlayerInputComp
 	PlayerInputComponent->BindAxis("LookRight");
 	PlayerInputComponent->BindAction("Handbrake", IE_Pressed, this, &ACarPawn1::OnHandbrakePressed);
 	PlayerInputComponent->BindAction("Handbrake", IE_Released, this, &ACarPawn1::OnHandbrakeReleased);	
+	PlayerInputComponent->BindAction("LookBack", IE_Pressed, this, &ACarPawn1::SwitchCamera);
 }
 
 void ACarPawn1::MoveForward(float Val)
@@ -102,12 +121,30 @@ void ACarPawn1::Tick(float Delta)
 
 	bInReverseGear = GetVehicleMovement()->GetCurrentGear() < 0;
 
+	//LookAtCar(ReverseCamera->GetOwner(), this->GetActorLocation());
+
 	//UpdateHUDStrings();
 }
 
 void ACarPawn1::SwitchCamera()
 {
+	if (true == bLookBack)
+	{
 
+	}
+	else
+	{
+
+	}
+	bLookBack = !bLookBack;
+}
+
+void ACarPawn1::LookAtCar(AActor* LookingActor, FVector TargetPosition, FVector WorldUp)
+{
+	/*FVector Forward = TargetPosition - LookingActor->GetActorLocation();
+	FRotator Rot = UKismetMathLibrary::MakeRotFromXZ(Forward, WorldUp);
+	LookingActor->SetActorRotation(Rot, ETeleportType::TeleportPhysics);
+	/**/
 }
 
 void ACarPawn1::BeginPlay()

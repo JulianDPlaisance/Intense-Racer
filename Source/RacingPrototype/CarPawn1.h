@@ -18,7 +18,7 @@
 #include "Components/TextRenderComponent.h"
 #include "Materials/Material.h"
 #include "GameFramework/Controller.h"
-
+#include "Kismet/KismetMathLibrary.h"
 
 #include "WheeledVehicle.h"
 #include "CarPawn1.generated.h"
@@ -33,10 +33,16 @@ class RACINGPROTOTYPE_API ACarPawn1 : public AWheeledVehicle
 {
 	GENERATED_BODY()
 
-	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+		UPROPERTY(EditAnywhere, Category = Camera, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		USpringArmComponent* SpringArm;
-	UPROPERTY(Category = Camera, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, Category = Camera, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USpringArmComponent* ReverseSpringArm;
+	UPROPERTY(EditAnywhere, Category = Camera, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		UCameraComponent* Camera;
+	UPROPERTY(EditAnywhere, Category = Camera, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		UCameraComponent* ReverseCamera;
+	UPROPERTY(EditAnywhere, Category = Camera, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		USpringArmComponent* CameraHolder;
 
 public:
 	ACarPawn1();
@@ -71,8 +77,10 @@ public:
 	void OnHandbrakePressed();
 
 	void OnHandbrakeReleased();
-
+	UFUNCTION(BlueprintCallable, Category = "Camera", meta = (ToolTip = "This will switch which camera is looking at the car"))
 	void SwitchCamera();
+
+	void LookAtCar(AActor* LookingActor, FVector TargetPosition, FVector WorldUp = FVector::UpVector);
 
 	static const FName LookUpBinding;
 	static const FName LookRightBinding;
