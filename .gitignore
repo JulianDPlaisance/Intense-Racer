@@ -24,7 +24,7 @@
 *.la
 *.a
 *.lib
-!Plugins/*.lib/**
+!Plugins/*.*/**
 
 # Executables
 *.exe
