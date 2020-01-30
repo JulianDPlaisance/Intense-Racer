@@ -49,7 +49,8 @@ SourceArt/**/*.tga
 Binaries/*
 Plugins/*/Binaries/*
 !Plugins/FMODStudio/Binaries/* 
-Plugins/FMODStudio/Binaries/*.pdb
+Plugins/FMODStudio/Binaries/Win64/*.pdb
+!Plugins/FMODStudio/Binaries/Win64/*.lib
 
 
 # Builds
