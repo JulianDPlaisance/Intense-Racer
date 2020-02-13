@@ -6,6 +6,7 @@ URacingPrototypeWheelFront::URacingPrototypeWheelFront()
 {
 	ShapeRadius = 35.f;
 	ShapeWidth = 10.0f;
-	bAffectedByHandbrake = false;
+	bAffectedByHandbrake = true;
 	SteerAngle = 70.f;
+	Mass = 100.f;
 }
