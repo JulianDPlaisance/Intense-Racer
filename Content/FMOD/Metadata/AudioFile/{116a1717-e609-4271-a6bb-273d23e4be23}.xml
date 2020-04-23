@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{116a1717-e609-4271-a6bb-273d23e4be23}">
+		<property name="assetPath">
+			<value>Master4-14LSUTrackSecondTimeLoop.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>22.588253968253969</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{13ea243d-7c62-4e4b-a5f2-6631a1d86101}</destination>
+		</relationship>
+	</object>
+</objects>

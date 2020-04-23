@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.05.00">
+    <object class="AudioFile" id="{0bc747b7-6b30-41cf-a1e0-6b2415168445}">
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>2.630125</value>
+        </property>
+        <property name="lastModifiedDate">
+            <value>0</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/bajatruck_onidle {dd16bc0d-7dbb-41b0-a2bb-90530d9339a8}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{13ea243d-7c62-4e4b-a5f2-6631a1d86101}</destination>
+        </relationship>
+    </object>
+</objects>

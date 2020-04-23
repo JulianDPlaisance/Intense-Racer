@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.05.00">
+    <object class="AudioFile" id="{c1d043e0-e5b2-441f-9c20-294e93b749a7}">
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>2.064</value>
+        </property>
+        <property name="lastModifiedDate">
+            <value>0</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/bajatruck_onmid {3bf5b4bc-db97-43c1-b85f-93b64a8b7540}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{13ea243d-7c62-4e4b-a5f2-6631a1d86101}</destination>
+        </relationship>
+    </object>
+</objects>

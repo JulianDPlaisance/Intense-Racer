@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="Workspace" id="{000af979-350a-4dd0-a2d9-6ee380c7821e}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../GitHub/Intense-Racer/Content/FMOD</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{c91a60a3-ff47-44fb-a62e-5036fb93edd9}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{6b034613-f648-442a-900f-6dcef8d80d15}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{400e3fd9-bd80-0ed7-157a-ad59724c41bf}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{48b12210-3369-07fb-153c-6cb2c206ded5}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{17ce7e0d-fa2a-4a82-9528-ae824e8986e5}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{13ea243d-7c62-4e4b-a5f2-6631a1d86101}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{6718134b-aab4-4bc3-a152-22bc129fd3a5}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{673b68cb-820d-0824-0021-b8845c727d55}</destination>
+		</relationship>
+	</object>
+</objects>
